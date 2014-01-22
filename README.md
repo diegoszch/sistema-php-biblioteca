@@ -6,13 +6,6 @@ Sistema simples desenvolvido em PHP, que visa auxiliar os novos praticantes da l
 Configuração
 ============
 
-Arquivo de configuração do banco 
+Arquivo de configuração do banco - global.php
 
-global.php
-$db_host = "localhost";
-$db_user = "root";
-$db_pass = "1234";
-$db_name  = "biblioteca";
-
-Local do banco de dados
-sql\biblioteca.sql
+Local do banco de dados - "sql\biblioteca.sql"

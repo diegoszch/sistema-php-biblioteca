@@ -2,12 +2,12 @@
     session_start();
     set_time_limit(0);
     
-    $db_host				= "localhost";   
-    $db_user				= "root";
-    $db_pass				= "1234";
-    $db_name				= "biblioteca";
+    $db_host = "localhost";   
+    $db_user = "root";
+    $db_pass = "1234";
+    $db_name = "biblioteca";
     
-    $multa_dia                          = 3;  //Valor da multa por dias atrazados
+    $multa_dia = 3;  //Valor da multa por dias atrazados
 
 
     //+Paginacao+++++++++++++++++++

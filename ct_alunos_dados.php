@@ -1,4 +1,4 @@
-<?    
+<?php
 if(isset($_REQUEST['id']) && (!empty($_REQUEST['id'])))
 {
     $sql = "SELECT * FROM alunos WHERE id = {$_REQUEST['id']}";

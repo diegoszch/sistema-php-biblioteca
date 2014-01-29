@@ -1,5 +1,5 @@
-<?
-    
+<?php
+
 if(isset($_REQUEST['id']) && (!empty($_REQUEST['id'])))
 {
     $sql = "SELECT * FROM usuarios WHERE id = {$_REQUEST['id']}";
@@ -7,6 +7,7 @@ if(isset($_REQUEST['id']) && (!empty($_REQUEST['id'])))
     $result = mysql_query($sql);
     $row = mysql_fetch_array($result);
 }
+
 ?>
 <h3>Cadastro de Usuarios</h3>
 <div id="formulario">
@@ -25,6 +26,7 @@ if(isset($_REQUEST['id']) && (!empty($_REQUEST['id'])))
         <td><input type="password" id="senha" name="senha" value="<?=$row["senha"];?>" /></td>
     </tr>    
 </table>
+
 <input type="hidden" name="id" value="<?=$row["id"];?>">
 <input type="hidden" name="acao" value="<?=$_REQUEST['acao']?>">
 </form>    

@@ -1,10 +1,13 @@
-<?
+<?php
+
 $area = "livros";
 
-$pagina = $_GET["pagina"];
+$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
 if($pagina == "") {
     $pagina = "1";
 }
+
 
 $tables_extras = "";
 
@@ -31,6 +34,8 @@ else
 {
     $where = "";
 }
+
+
 
 // Calculando o registro inicial
 $inicio = $pagina - 1;
@@ -73,7 +78,6 @@ if(!empty ($_REQUEST['filtro']))
     }
 }
 
-
 ?>
 <h3>Lista de Livros</h3>
 <form name="filtro" method="GET" action="<?=$_SERVER['PHP_SELF'];?>">
@@ -89,6 +93,8 @@ if(!empty ($_REQUEST['filtro']))
      <input type="hidden" name="pagina" value="<?=$_REQUEST['pagina']?>">
 </div>
 </form>
+
+
 <table id="mytable" cellspacing="0">    
     <tr>
         <th scope="col">Id</th>
@@ -97,7 +103,7 @@ if(!empty ($_REQUEST['filtro']))
         <th scope="col">Alteracao</th>
         <th scope="col">Excluir</th>
     </tr>
-    <?
+    <?php
     
         $sql = "SELECT livros.id,date_format(livros.inclusao_livro,'%d/%m/%Y') as inclusao_livro,
                       livros.nome_livro FROM livros {$tables_extras} {$where}  ORDER BY inclusao_livro  limit {$inicio},{$maximo}";
@@ -118,7 +124,7 @@ if(!empty ($_REQUEST['filtro']))
                     $class = "specalt";
                     $class_alt = "class='alt'";
             }
-
+	
     ?>
     <tr>
         <td <?=$class_alt;?>><?=$row["id"];?></td>
@@ -131,12 +137,13 @@ if(!empty ($_REQUEST['filtro']))
         <input type="hidden" name="acao" value="excluir">
         <input type="hidden" name="id" value="<?=$row["id"];?>">
     </form>    
-    <?
+    <?php
             $temp++;
         }
+        
     ?>    
 </table>
-<?
+<?php
 if($pgs > 1 ) {
     echo "<div>";
     // Mostragem de pagina

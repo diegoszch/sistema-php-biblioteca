@@ -1,4 +1,4 @@
-<?
+<?php
     include("global.php");
     
     $sql = "SELECT * FROM usuarios WHERE login = '{$_POST["login"]}' AND senha = '{$_POST["senha"]}'";

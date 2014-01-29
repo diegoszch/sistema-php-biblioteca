@@ -1,7 +1,9 @@
-<?
+<?php
+
 $area = "conslivrosxalunos";
 
-$pagina = $_GET["pagina"];
+$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
 if($pagina == "") {
     $pagina = "1";
 }
@@ -96,7 +98,7 @@ if(!empty ($_REQUEST['filtro']))
         <th scope="col">Nome do livro</th>
         <th scope="col">Selecionar</th>
     </tr>
-    <?
+    <?php
 
         $sql = "SELECT livros.id,date_format(livros.inclusao_livro,'%d/%m/%Y') as inclusao_livro,
                       livros.nome_livro FROM livros {$tables_extras} {$where}  ORDER BY inclusao_livro  limit {$inicio},{$maximo}";
@@ -125,12 +127,12 @@ if(!empty ($_REQUEST['filtro']))
         <td <?=$class_alt;?>><?=$row["nome_livro"];?></td>
         <td <?=$class_alt;?>><a class="botao" href="index.php?area=<?=$area;?>&acao=consulta&id_livro=<?=$row["id"];?>">Selecionar</a></td>
     </tr>    
-    <?
+    <?php
             $temp++;
         }
     ?>
 </table>
-<?
+<?php
 if($pgs > 1 ) {
     echo "<div>";
     // Mostragem de pagina

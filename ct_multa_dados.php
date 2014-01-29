@@ -1,4 +1,4 @@
-<?
+<?php
 
 $sql = "SELECT valor FROM multa";
 

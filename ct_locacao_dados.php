@@ -1,4 +1,4 @@
-<?
+<?php
     $sql = "SELECT * FROM alunos WHERE id = {$_GET['id_aluno']}";
     $result = mysql_query($sql);
     $row = mysql_fetch_array($result);
@@ -25,7 +25,7 @@
         <td>Livro</td>
         <td>
         <select name="id_livro">
-            <?
+            <?php
                 $sql = "SELECT * FROM livros";
                 $result = mysql_query($sql);
 

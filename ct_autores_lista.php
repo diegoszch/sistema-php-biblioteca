@@ -1,7 +1,8 @@
-<?
+<?php
 $area = "autores";
 
-$pagina = $_GET["pagina"];
+$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
 if($pagina == "") {
     $pagina = "1";
 }
@@ -39,7 +40,7 @@ $pgs = ceil($total / $maximo);
         <th scope="col">Alteracao</th>
         <th scope="col">Excluir</th>
     </tr>
-    <?
+    <?php
         $sql = "SELECT * FROM autores ORDER BY id  limit {$inicio},{$maximo}";
         $result = mysql_query($sql);        
         $temp = 0;
@@ -67,12 +68,12 @@ $pgs = ceil($total / $maximo);
         <input type="hidden" name="acao" value="excluir">
         <input type="hidden" name="id" value="<?=$row["id"];?>">
     </form>
-    <?
+    <?php
     	$temp++;
         }
     ?>    
 </table>
-<?
+<?php
 if($pgs > 1 ) {
     echo "<div>";
     // Mostragem de pagina

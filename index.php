@@ -1,4 +1,4 @@
-<?
+<?php
 include("global.php");
 
 if($_SESSION["usuario"]["logado"] != 1)
@@ -7,6 +7,7 @@ if($_SESSION["usuario"]["logado"] != 1)
 	exit;	
 	
 }
+
 ?>
 <!DOCTYPE  html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -27,7 +28,8 @@ if($_SESSION["usuario"]["logado"] != 1)
 					<div id="content">
 						<!-- Body Content -->
 						<div id="content-inner">
-						<?
+						<?php
+
 						include("inc_mensagem.php");
         				if(isset($_GET["area"]))
         				{
@@ -62,13 +64,13 @@ if($_SESSION["usuario"]["logado"] != 1)
 
 						<h4>Consultas</h4>
 						<ul class="side-nav">
-                                                        <li><a href="index.php?area=consalunosxlivros">Alunos X Livros</a></li>
+                            <li><a href="index.php?area=consalunosxlivros">Alunos X Livros</a></li>
 							<li><a href="index.php?area=conslivrosxalunos">Livros X Alunos</a></li>
 						</ul>
 
 						<h4>Operacoes</h4>
 						<ul class="side-nav">
-                                                        <li><a href="index.php?area=multa">Multa</a></li>
+                            <li><a href="index.php?area=multa">Multa</a></li>
 							<li><a href="index.php?area=locacao">Locacoes</a></li>
 							<li><a href="index.php?area=devolucao">Devolucoes</a></li>
 							<li><a href="sair.php">Sair</a></li>

@@ -1,4 +1,4 @@
-<?
+<?php
     $sql = "SELECT id,id_aluno,id_livro, date_format(data_devolucao,'%d/%m/%Y') as dta_devolucao FROM locacao WHERE id = {$_REQUEST['id']}";
     $row = mysql_fetch_array(mysql_query($sql));
 ?>
@@ -18,7 +18,7 @@
         <td><?=$row["dta_devolucao"];?></td>
     </tr>
 
-    <?
+    <?php
     if(!isset($_POST['data_entrega']))
     {
     ?>
@@ -34,7 +34,7 @@
             <td colspan="2"><input type="submit" name="confirmar" value="Confirmar"></td>        
         </tr>
         </form>
-    <?
+    <?php
     }
     else
     {
@@ -77,7 +77,7 @@
         <input type="hidden" name="id" value="<?=$row['id'];?>">
         </form>
     
-    <?
+    <?php
     }
     ?>    
 </table>

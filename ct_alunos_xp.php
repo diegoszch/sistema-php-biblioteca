@@ -1,4 +1,5 @@
-<?
+<?php
+
     include("global.php");
     
     if($_REQUEST["acao"] == "inserir")
@@ -9,8 +10,7 @@
               '{$_POST['email_aluno']}','{$_POST['tel_aluno']}','{$_POST['cidade_aluno']}','{$_POST['nasc_aluno']}', '{$_POST['identidade_aluno']}', '{$_POST['cep_aluno']}')";
 
            $result = mysql_query($sql);
-           $_SESSION["msg"] = (!$result)? mysql_error() : "Registro inserido com sucesso.";            
-        
+           $_SESSION["msg"] = (!$result)? mysql_error() : "Registro inserido com sucesso.";                   
     }
     else if($_REQUEST["acao"] == "alterar")
     {

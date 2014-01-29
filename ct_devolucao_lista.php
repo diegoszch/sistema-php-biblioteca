@@ -7,7 +7,7 @@
         <th scope="col">Devolver</th>
         <th scope="col">Excluir</th>
     </tr>
-    <?
+    <?php
     //
         $sql = "SELECT id,id_aluno,id_livro, date_format(data_devolucao,'%d/%m/%Y') as dta_devolucao FROM locacao WHERE data_entrega IS NULL ORDER BY data_devolucao";
         
@@ -37,7 +37,7 @@
         <input type="hidden" name="acao" value="excluir">
         <input type="hidden" name="id" value="<?=$row["id"];?>">
     </form>
-    <?
+    <?php
         $temp++;
         }
     ?>    

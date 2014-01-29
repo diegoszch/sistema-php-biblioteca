@@ -1,7 +1,8 @@
-<?
+<?php
 $area = "locacao";
 
-$pagina = $_GET["pagina"];
+$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
 if($pagina == "") {
     $pagina = "1";
 }
@@ -98,8 +99,7 @@ if(!empty ($_REQUEST['filtro']))
         <th scope="col">Nome do livro</th>
         <th scope="col">Selecionar</th>
     </tr>
-    <?
-
+    <?php
 
         $sql = "SELECT livros.id,date_format(livros.inclusao_livro,'%d/%m/%Y') as inclusao_livro,
                       livros.nome_livro FROM livros {$tables_extras} {$where}  ORDER BY inclusao_livro  limit {$inicio},{$maximo}";
@@ -109,7 +109,6 @@ if(!empty ($_REQUEST['filtro']))
         $temp = 0;
         while($row = mysql_fetch_array($result))
         {
-
             $sql_ret = "select count(*) as conta FROM locacao WHERE id_livro = {$row['id']} AND data_entrega is NULL";
             $result_ret = mysql_query($sql_ret);
             $retorno_ret =  mysql_fetch_array($result_ret);
@@ -134,13 +133,13 @@ if(!empty ($_REQUEST['filtro']))
         <td <?=$class_alt;?>><?=$row["nome_livro"];?></td>
         <td <?=$class_alt;?>><a class="botao" href="index.php?area=locacao&acao=locar&id_aluno=<?=$_GET["id_aluno"];?>&id_livro=<?=$row["id"];?>">Selecionar</a></td>
     </tr>   
-    <?
+    <?php
                 $temp++;
             }
         }
     ?>
 </table>
-<?
+<?php
 if($pgs > 1 ) {
     echo "<div>";
     // Mostragem de pagina

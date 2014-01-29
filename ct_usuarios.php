@@ -1,4 +1,4 @@
-<?
+<?php
     switch ($_REQUEST['acao'])
     {
         case "inserir":  

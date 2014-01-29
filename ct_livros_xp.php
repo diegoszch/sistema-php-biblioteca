@@ -1,4 +1,4 @@
-<?
+<?php
     include("global.php");
     
     if($_REQUEST["acao"] == "inserir")

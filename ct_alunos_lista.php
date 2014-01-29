@@ -1,12 +1,14 @@
-<?    
+<?php    
 $area = "alunos";
 
-$pagina = $_GET["pagina"];
+$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
 if($pagina == "") {
     $pagina = "1";
 }
 
-if(!empty ($_REQUEST['filtroVal']))
+
+if(!empty($_REQUEST['filtroVal']))
 {
     $where = " WHERE {$_REQUEST['filtro']} like '%{$_REQUEST['filtroVal']}%' ";
 }
@@ -65,7 +67,7 @@ if(!empty ($_REQUEST['filtro']))
      </select>
      <input type="submit" name="procurar" value="Procurar" />
      <input type="hidden" name="area" value="<?=$_REQUEST['area']?>">
-     <input type="hidden" name="pagina" value="<?=$_REQUEST['pagina']?>">
+     <input type="hidden" name="pagina" value="<?=$pagina?>">
 </div>
 </form>
 <table id="mytable" cellspacing="0">    
@@ -76,7 +78,7 @@ if(!empty ($_REQUEST['filtro']))
         <th scope="col">Alteracao</th>
         <th scope="col">Excluir</th>
     </tr>
-    <?
+    <?php
     
         $sql = "SELECT id, nome_aluno,cidade_aluno FROM alunos {$where} ORDER BY id  limit {$inicio},{$maximo}";
         
@@ -107,12 +109,12 @@ if(!empty ($_REQUEST['filtro']))
                 <input type="hidden" name="acao" value="excluir">
                 <input type="hidden" name="id" value="<?=$row["id"];?>">
         </form>
-    <?
+    <?php
             $temp++;
         }
     ?>    
 </table>
-<?
+<?php
 if($pgs > 1 ) {
     echo "<div>";
     // Mostragem de pagina

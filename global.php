@@ -2,17 +2,12 @@
     session_start();
     set_time_limit(0);
     
-    $db_host = "localhost";   
+    $db_host = "localhost:3307";   
     $db_user = "root";
-    $db_pass = "1234";
+    $db_pass = "";
     $db_name = "biblioteca";
-    
-    $multa_dia = 3;  //Valor da multa por dias atrazados
 
-
-    //+Paginacao+++++++++++++++++++
-    $maximo = 10;
-    //-Paginacao-------------------
+    $maximo = 10;  // Paginacao
     
     $handle = mysql_connect($db_host,$db_user,$db_pass);   
     if(!$handle)
@@ -22,10 +17,9 @@
     
     mysql_select_db($db_name,$handle);
     
-    function retornaValor($campo,$tabela,$condicao)
-    {    
-        $sql = "SELECT {$campo} FROM {$tabela} WHERE {$condicao}";
-        $row = mysql_fetch_array(mysql_query($sql));  
-        return $row[$campo];    
-    }     
+	
+    error_reporting (E_ERROR | E_WARNING );
+    
+	include "funcoes.php";
+	
 ?>

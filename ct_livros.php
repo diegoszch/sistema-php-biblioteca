@@ -1,4 +1,5 @@
-<?
+<?php
+
     switch ($_REQUEST['acao'])
     {
         case "inserir":
@@ -7,7 +8,7 @@
         case "alterar":
             include("ct_livros_dados.php");
             break;
-        default: 
+        default:         	
             include("ct_livros_lista.php");
             break; 
     }

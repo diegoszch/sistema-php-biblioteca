@@ -1,7 +1,8 @@
-<?
+<?php
 $area = "consalunosxlivros";
 
-$pagina = $_GET["pagina"];
+$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
 if($pagina == "") {
     $pagina = "1";
 }
@@ -75,7 +76,7 @@ if(!empty ($_REQUEST['filtro']))
         <th scope="col">Identidade</th>
         <th scope="col">Selecionar</th>
     </tr>
-    <?
+    <?php
 
         $sql = "SELECT id, nome_aluno,identidade_aluno FROM alunos {$where} ORDER BY id  limit {$inicio},{$maximo}";
 
@@ -101,12 +102,12 @@ if(!empty ($_REQUEST['filtro']))
         <td <?=$class_alt;?>><?=$row["identidade_aluno"];?></td>
         <td <?=$class_alt;?>><a class="botao" href="index.php?area=consalunosxlivros&acao=consulta&id_aluno=<?=$row["id"];?>">Selecionar</a></td>
     </tr>
-    <?
+    <?php
             $temp++;
         }
     ?>
 </table>
-<?
+<?php
 if($pgs > 1 ) {
     echo "<div>";
     // Mostragem de pagina

@@ -1,7 +1,8 @@
-<?
+<?php
 $area = "consalunosxlivros";
 
-$pagina = $_GET["pagina"];
+$pagina = (isset($_GET['pagina']))? $_GET['pagina'] : 1;
+
 if($pagina == "") {
     $pagina = "1";
 }
@@ -36,7 +37,7 @@ $pgs = ceil($total / $maximo);
         <th scope="col">Livro</th>
         <th scope="col">Data de Retirada</th>
     </tr>
-    <?
+    <?php
 
         $sql = "SELECT liv.nome_livro as nome,  date_format(loc.data_retirada,'%d/%m/%Y') as data_retirada FROM locacao as loc,livros as liv WHERE loc.id_livro = liv.id AND loc.id_aluno = {$_GET["id_aluno"]} ORDER BY loc.id  limit {$inicio},{$maximo}";
 
@@ -60,12 +61,12 @@ $pgs = ceil($total / $maximo);
         <td <?=$class_alt;?>><?=$row["nome"];?></td>
         <td <?=$class_alt;?>><?=$row["data_retirada"];?></td>
     </tr>
-    <?
+    <?php
             $temp++;
         }
     ?>
 </table>
-<?
+<?php
 if($pgs > 1 ) {
     echo "<div>";
     // Mostragem de pagina

@@ -20,6 +20,6 @@
 	
     error_reporting (E_ERROR | E_WARNING );
     
-	include "funcoes.php";
+    include "funcoes.php";
 	
 ?>
